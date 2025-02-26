@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://purl.org/rfilop/rfilop#"
+     xml:base="http://purl.org/rfilop/rfilop"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dolce="http://www.ontologyrepository.com/DOLCE#">
+
+    <owl:Ontology rdf:about="http://purl.org/rfilop/rfilop">
+        <owl:imports rdf:resource="http://www.ontologyrepository.com/DOLCE.owl"/>
+    </owl:Ontology>
+
+    <!-- Sales Order -->
+    <owl:Class rdf:about="http://purl.org/rfilop/rfilop#SalesOrder">
+        <rdfs:subClassOf rdf:resource="http://www.ontologyrepository.com/DOLCE#SocialObject"/>
+    </owl:Class>
+
+    <!-- Transport Order -->
+    <owl:Class rdf:about="http://purl.org/rfilop/rfilop#TransportOrder">
+        <rdfs:subClassOf rdf:resource="http://www.ontologyrepository.com/DOLCE#SocialObject"/>
+    </owl:Class>
+
+    <!-- Ship Unit -->
+    <owl:Class rdf:about="http://purl.org/rfilop/rfilop#ShipUnit">
+        <rdfs:subClassOf rdf:resource="http://www.ontologyrepository.com/DOLCE#PhysicalEndurant"/>
+    </owl:Class>
+
+    <!-- Leg Order -->
+    <owl:Class rdf:about="http://purl.org/rfilop/rfilop#LegOrder">
+        <rdfs:subClassOf rdf:resource="http://www.ontologyrepository.com/DOLCE#SocialObject"/>
+    </owl:Class>
+
+    <!-- Trip -->
+    <owl:Class rdf:about="http://purl.org/rfilop/rfilop#Trip">
+        <rdfs:subClassOf rdf:resource="http://www.ontologyrepository.com/DOLCE#Perdurant"/>
+    </owl:Class>
+
+    <!-- Stop -->
+    <owl:Class rdf:about="http://purl.org/rfilop/rfilop#Stop">
+        <rdfs:subClassOf rdf:resource="http://www.ontologyrepository.com/DOLCE#PhysicalEndurant"/>
+    </owl:Class>
+
+    <!-- Involved Party -->
+    <owl:Class rdf:about="http://purl.org/rfilop/rfilop#InvolvedParty">
+        <rdfs:subClassOf rdf:resource="http://www.ontologyrepository.com/DOLCE#SocialObject"/>
+    </owl:Class>
+
+    <!-- Event -->
+    <owl:Class rdf:about="http://purl.org/rfilop/rfilop#Event">
+        <rdfs:subClassOf rdf:resource="http://www.ontologyrepository.com/DOLCE#Perdurant"/>
+    </owl:Class>
+
+    <!-- Milestone -->
+    <owl:Class rdf:about="http://purl.org/rfilop/rfilop#Milestone">
+        <rdfs:subClassOf rdf:resource="http://www.ontologyrepository.com/DOLCE#SocialObject"/>
+    </owl:Class>
+
+    <!-- Activity -->
+    <owl:Class rdf:about="http://purl.org/rfilop/rfilop#Activity">
+        <rdfs:subClassOf rdf:resource="http://www.ontologyrepository.com/DOLCE#SocialObject"/>
+    </owl:Class>
+
+    <!-- Relationships -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/rfilop/rfilop#hasTransportOrder">
+        <rdfs:domain rdf:resource="http://purl.org/rfilop/rfilop#SalesOrder"/>
+        <rdfs:range rdf:resource="http://purl.org/rfilop/rfilop#TransportOrder"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/rfilop/rfilop#hasLegOrder">
+        <rdfs:domain rdf:resource="http://purl.org/rfilop/rfilop#TransportOrder"/>
+        <rdfs:range rdf:resource="http://purl.org/rfilop/rfilop#LegOrder"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/rfilop/rfilop#hasShipUnit">
+        <rdfs:domain rdf:resource="http://purl.org/rfilop/rfilop#TransportOrder"/>
+        <rdfs:range rdf:resource="http://purl.org/rfilop/rfilop#ShipUnit"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/rfilop/rfilop#hasTrip">
+        <rdfs:domain rdf:resource="http://purl.org/rfilop/rfilop#LegOrder"/>
+        <rdfs:range rdf:resource="http://purl.org/rfilop/rfilop#Trip"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/rfilop/rfilop#hasStop">
+        <rdfs:domain rdf:resource="http://purl.org/rfilop/rfilop#Trip"/>
+        <rdfs:range rdf:resource="http://purl.org/rfilop/rfilop#Stop"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/rfilop/rfilop#hasInvolvedParty">
+        <rdfs:domain rdf:resource="http://purl.org/rfilop/rfilop#TransportOrder"/>
+        <rdfs:range rdf:resource="http://purl.org/rfilop/rfilop#InvolvedParty"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/rfilop/rfilop#hasEvent">
+        <rdfs:domain rdf:resource="http://purl.org/rfilop/rfilop#TransportOrder"/>
+        <rdfs:range rdf:resource="http://purl.org/rfilop/rfilop#Event"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/rfilop/rfilop#hasMilestone">
+        <rdfs:domain rdf:resource="http://purl.org/rfilop/rfilop#TransportOrder"/>
+        <rdfs:range rdf:resource="http://purl.org/rfilop/rfilop#Milestone"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/rfilop/rfilop#hasActivity">
+        <rdfs:domain rdf:resource="http://purl.org/rfilop/rfilop#TransportOrder"/>
+        <rdfs:range rdf:resource="http://purl.org/rfilop/rfilop#Activity"/>
+    </owl:ObjectProperty>
+
+</rdf:RDF>
